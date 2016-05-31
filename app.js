@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -26,7 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //ここでv1とかルーティングをし、ファイルを指定する
 app.use('/', routes);
-app.use('/users', users);
+
+/* v1 */
+app.use('/v1/user', require('./routes/v1/user'));
+
 
 //swagger
 app.use(swagger.init(app, {
@@ -36,7 +38,7 @@ app.use(swagger.init(app, {
     swaggerJSON: '/api-docs',      // swagger表示用のデータアクセス先
     swaggerUI: './swagger',           // swagger-uiが置いてあるパス
     basePath: 'http://localhost:3000',
-    apis: ['./api_documents/api.js'],            // ドキュメントが記載されているファイル
+    apis: ['./api_documents/v1/user.js'],            // ドキュメントが記載されているファイル
     middleware: function(req, res){}
 }));
 
@@ -54,7 +56,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({
       message: err.message,
       error: err
     });
@@ -65,7 +67,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({
     message: err.message,
     error: {}
   });
