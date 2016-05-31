@@ -62,7 +62,7 @@ exports.user = function (req, res) {
  *       sex:
  *         type: String
  *       password:
- *         type: String
+ *         type: Int
  *       questionnaire_1:
  *         type: Int
  *       questionnaire_2:
