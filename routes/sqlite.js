@@ -22,7 +22,7 @@ var sqlite_util = function() {
                         //console.dir(err);
                         resolve(err);
                     } else{
-                        console.log("success");
+                        //console.log("success");
                         resolve(true);
                     }
                 });

@@ -37,7 +37,7 @@ app.use(swagger.init(app, {
     swaggerURL: '/swagger',           // swaggerページのパス
     swaggerJSON: '/api-docs',      // swagger表示用のデータアクセス先
     swaggerUI: './swagger',           // swagger-uiが置いてあるパス
-    basePath: 'http://localhost:3000',
+    basePath: 'http://localhost:2800',
     apis: ['./api_documents/v1/user.js'],            // ドキュメントが記載されているファイル
     middleware: function(req, res){}
 }));
