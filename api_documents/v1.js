@@ -6,6 +6,41 @@
  
 /**
  * @swagger
+ * path: /v1/login
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: Login with username and password
+ *      notes: Returns a user based on username
+ *      responseClass: login
+ *      nickname: login
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: name
+ *          description: Your username
+ *          paramType: query
+ *          required: true
+ *          type: String
+ *        - name: password
+ *          description: Your username
+ *          paramType: query
+ *          required: true
+ *          type: Int
+ *      responses:
+ *          200:
+ *              description: Success
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: "#/definitions/Path" 
+ *          400:
+ *              description: Error
+ *              schema: 
+ *                  type: object
+ */
+
+/**
+ * @swagger
  * path: /v1/user
  * operations:
  *   -  httpMethod: POST
@@ -34,20 +69,6 @@
  *              schema: 
  *                  type: object
  */
-
-exports.user = function (req, res) {
-  /*var user = {};
-  user.username = req.param('username');
-  user.age = req.param('age');
-  user.sex = req.param('sex');
-  user.password = req.param('password');
-  user.questionnaire_1 = req.param('questionnaire_1');
-  user.questionnaire_2 = req.param('questionnaire_2');
-  user.questionnaire_3 = req.param('questionnaire_3');
-  user.questionnaire_4 = req.param('questionnaire_4');
-  res.json(user);
-  res.status(200).json({ message: 'This is Swagger /v1/user POST method.' });*/
-};
 
 /**
  * @swagger
