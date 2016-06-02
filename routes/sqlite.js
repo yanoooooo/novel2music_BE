@@ -2,11 +2,24 @@ var sqlite_util = function() {
     var sqlite3 = require("sqlite3").verbose();
     var db = new sqlite3.Database("./novel2music.sqlite");
 
-    this.select = function() {
-        db.serialize(function () {
-            db.each("SELECT * FROM user", function (err, row) {
-                console.dir(row);
-                //console.log(row.id + " : " + row.name);
+    this.select = function(sql) {
+        return new Promise(function(resolve) {
+            db.serialize(function () {
+                db.all(sql, function(err, rows) {
+                    if(err) {
+                        //console.dir(err);
+                        datas = {status: false, datas: err};
+                        resolve(datas);
+                    } else{
+                        //console.log("success");
+                        datas = {status: true, datas: rows};
+                        resolve(datas);
+                    }
+                });
+                /*db.each("SELECT * FROM user", function (err, row) {
+                    console.dir(row);
+                    //console.log(row.id + " : " + row.name);
+                });*/
             });
         });
         //db.close();
