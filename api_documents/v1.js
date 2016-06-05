@@ -6,6 +6,19 @@
 
 /**
  * @swagger
+ * path: /v1/novel
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all master_novel data
+ *      notes: Returns a user based on username
+ *      responseClass: novel
+ *      nickname: novel
+ *      consumes:
+ *        - application/json
+ */
+
+/**
+ * @swagger
  * path: /v1/music
  * operations:
  *   -  httpMethod: GET
