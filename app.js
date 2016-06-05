@@ -35,6 +35,7 @@ app.use('/', routes);
 
 /* v1 */
 app.use('/v1/user', require('./routes/v1/user'));
+app.use('/v1/login', require('./routes/v1/login'));
 
 
 //swagger
@@ -45,7 +46,7 @@ app.use(swagger.init(app, {
     swaggerJSON: '/api-docs',      // swagger表示用のデータアクセス先
     swaggerUI: './swagger',           // swagger-uiが置いてあるパス
     basePath: 'http://localhost:2800',
-    apis: ['./api_documents/v1/user.js'],            // ドキュメントが記載されているファイル
+    apis: ['./api_documents/v1.js'],            // ドキュメントが記載されているファイル
     middleware: function(req, res){}
 }));
 
