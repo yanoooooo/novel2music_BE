@@ -10,11 +10,17 @@
  * operations:
  *   -  httpMethod: GET
  *      summary: fetch all master_novel data
- *      notes: Returns a user based on username
+ *      notes: Returns a novel based on novels
  *      responseClass: novel
  *      nickname: novel
  *      consumes:
  *        - application/json
+ *      parameters:
+ *        - name: id
+ *          description: novel's id
+ *          paramType: query
+ *          required: false
+ *          type: Int
  */
 
 /**
