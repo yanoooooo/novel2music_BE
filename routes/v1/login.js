@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
     //res.json({ message: 'This is /v1/login GET method.', name: req.param("name"), password: req.param("password") });
 });
 
-router.post('/', function(req, res, next) {
+/*router.post('/', function(req, res, next) {
     //res.render('index', { title: 'Express' });
     //console.log(req.body);
     var sql = "INSERT INTO user ";
@@ -34,6 +34,6 @@ router.post('/', function(req, res, next) {
             res.status(400).json({ message: 'Error! insert into table.', detail: result });
         }
     });
-});
+});*/
 
 module.exports = router;
