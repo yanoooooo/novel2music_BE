@@ -3,7 +3,26 @@
  * resourcePath: /v1
  * description: All about API
  */
- 
+
+/**
+ * @swagger
+ * path: /v1/scale
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all scale data
+ *      notes: Returns a user based on username
+ *      responseClass: scale
+ *      nickname: scale
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: id
+ *          description: scale's id
+ *          paramType: query
+ *          required: false
+ *          type: Int
+ */
+
 /**
  * @swagger
  * path: /v1/login

@@ -36,6 +36,7 @@ app.use('/', routes);
 /* v1 */
 app.use('/v1/user', require('./routes/v1/user'));
 app.use('/v1/login', require('./routes/v1/login'));
+app.use('/v1/scale', require('./routes/v1/scale'));
 
 
 //swagger
