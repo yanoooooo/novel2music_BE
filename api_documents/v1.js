@@ -59,6 +59,19 @@
 
  /**
  * @swagger
+ * path: /v1/rhythm
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all rhythm data
+ *      notes: Returns a user based on username
+ *      responseClass: rhythm
+ *      nickname: rhythm
+ *      consumes:
+ *        - application/json
+ */
+
+ /**
+ * @swagger
  * path: /v1/time
  * operations:
  *   -  httpMethod: GET
