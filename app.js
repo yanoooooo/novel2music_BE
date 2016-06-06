@@ -37,6 +37,7 @@ app.use('/', routes);
 app.use('/v1/user', require('./routes/v1/user'));
 app.use('/v1/login', require('./routes/v1/login'));
 app.use('/v1/scale', require('./routes/v1/scale'));
+app.use('/v1/time', require('./routes/v1/time'));
 app.use('/v1/music', require('./routes/v1/music'));
 app.use('/v1/novel', require('./routes/v1/novel'));
 
