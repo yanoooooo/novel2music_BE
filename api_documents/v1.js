@@ -57,6 +57,19 @@
  *          type: Int
  */
 
+ /**
+ * @swagger
+ * path: /v1/time
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all time data
+ *      notes: Returns a user based on username
+ *      responseClass: time
+ *      nickname: time
+ *      consumes:
+ *        - application/json
+ */
+
 /**
  * @swagger
  * path: /v1/scale
@@ -68,12 +81,6 @@
  *      nickname: scale
  *      consumes:
  *        - application/json
- *      parameters:
- *        - name: id
- *          description: scale's id
- *          paramType: query
- *          required: false
- *          type: Int
  */
 
 /**
