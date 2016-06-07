@@ -32,6 +32,35 @@
  * @swagger
  * path: /v1/relation/novel
  * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all master_term data
+ *      notes: Returns a terms in novel and paragraph
+ *      responseClass: term
+ *      nickname: term
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: novel_id
+ *          description: novel's id
+ *          paramType: query
+ *          required: true
+ *          type: Int
+ *        - name: paragraph_id
+ *          description: paragraph's id
+ *          paramType: query
+ *          required: true
+ *          type: Int
+ *        - name: user_id
+ *          description: user's id
+ *          paramType: query
+ *          required: true
+ *          type: Int
+ */
+
+ /**
+ * @swagger
+ * path: /v1/relation/novel
+ * operations:
  *   -  httpMethod: POST
  *      summary: save relation novel and music
  *      notes: save relation novel and music
