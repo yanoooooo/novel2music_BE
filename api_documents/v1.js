@@ -4,6 +4,37 @@
  * description: All about API
  */
 
+ /**
+ * @swagger
+ * path: /v1/relation/novel
+ * operations:
+ *   -  httpMethod: POST
+ *      summary: save relation novel and music
+ *      notes: save relation novel and music
+ *      responseClass: relation_novel_music
+ *      nickname: relation_novel_music
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: body
+ *          description: post request body
+ *          paramType: body
+ *          required: true
+ *          type: relation_novel_music
+ *          dataType: object
+ *      responses:
+ *          200:
+ *              description: Success
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: "#/definitions/Path" 
+ *          400:
+ *              description: Error
+ *              schema: 
+ *                  type: object
+ */
+
 /**
  * @swagger
  * path: /v1/novel
@@ -135,6 +166,25 @@
  * @swagger
  * path: /v1/user
  * operations:
+ *   -  httpMethod: GET
+ *      summary: get user's data without password
+ *      notes: Returns a user's id
+ *      responseClass: user
+ *      nickname: user
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: name
+ *          description: Your username
+ *          paramType: query
+ *          required: false
+ *          type: String
+ */
+
+/**
+ * @swagger
+ * path: /v1/user
+ * operations:
  *   -  httpMethod: POST
  *      summary: Login with username and password
  *      notes: Returns a user based on username
@@ -183,5 +233,16 @@
  *       questionnaire_3:
  *         type: Int
  *       questionnaire_4:
+ *         type: Int
+ *   relation_novel_music:
+ *     id: relation_novel_music
+ *     properties:
+ *       paragraph_id:
+ *         type: Int
+ *       user_id:
+ *         type: Int
+ *       music_id:
+ *         type: Int
+ *       novel_id:
  *         type: Int
  */
