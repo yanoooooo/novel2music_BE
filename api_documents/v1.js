@@ -4,17 +4,54 @@
  * description: All about API
  */
 
+ /**
+ * @swagger
+ * path: /v1/relation/novel
+ * operations:
+ *   -  httpMethod: POST
+ *      summary: save relation novel and music
+ *      notes: save relation novel and music
+ *      responseClass: relation_novel_music
+ *      nickname: relation_novel_music
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: body
+ *          description: post request body
+ *          paramType: body
+ *          required: true
+ *          type: relation_novel_music
+ *          dataType: object
+ *      responses:
+ *          200:
+ *              description: Success
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: "#/definitions/Path" 
+ *          400:
+ *              description: Error
+ *              schema: 
+ *                  type: object
+ */
+
 /**
  * @swagger
  * path: /v1/novel
  * operations:
  *   -  httpMethod: GET
  *      summary: fetch all master_novel data
- *      notes: Returns a user based on username
+ *      notes: Returns a novel based on novels
  *      responseClass: novel
  *      nickname: novel
  *      consumes:
  *        - application/json
+ *      parameters:
+ *        - name: id
+ *          description: novel's id
+ *          paramType: query
+ *          required: false
+ *          type: Int
  */
 
 /**
@@ -51,6 +88,32 @@
  *          type: Int
  */
 
+ /**
+ * @swagger
+ * path: /v1/rhythm
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all rhythm data
+ *      notes: Returns a user based on username
+ *      responseClass: rhythm
+ *      nickname: rhythm
+ *      consumes:
+ *        - application/json
+ */
+
+ /**
+ * @swagger
+ * path: /v1/time
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all time data
+ *      notes: Returns a user based on username
+ *      responseClass: time
+ *      nickname: time
+ *      consumes:
+ *        - application/json
+ */
+
 /**
  * @swagger
  * path: /v1/scale
@@ -62,12 +125,6 @@
  *      nickname: scale
  *      consumes:
  *        - application/json
- *      parameters:
- *        - name: id
- *          description: scale's id
- *          paramType: query
- *          required: false
- *          type: Int
  */
 
 /**
@@ -103,6 +160,25 @@
  *              description: Error
  *              schema: 
  *                  type: object
+ */
+
+/**
+ * @swagger
+ * path: /v1/user
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: get user's data without password
+ *      notes: Returns a user's id
+ *      responseClass: user
+ *      nickname: user
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: name
+ *          description: Your username
+ *          paramType: query
+ *          required: false
+ *          type: String
  */
 
 /**
@@ -157,5 +233,16 @@
  *       questionnaire_3:
  *         type: Int
  *       questionnaire_4:
+ *         type: Int
+ *   relation_novel_music:
+ *     id: relation_novel_music
+ *     properties:
+ *       paragraph_id:
+ *         type: Int
+ *       user_id:
+ *         type: Int
+ *       music_id:
+ *         type: Int
+ *       novel_id:
  *         type: Int
  */
