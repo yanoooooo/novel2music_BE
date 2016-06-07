@@ -9,20 +9,18 @@ router.use(bodyParser());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    /*var name = req.param("name");
-    var sql = "SELECT id, name, age, sex, questionnaire_1, questionnaire_2, questionnaire_3, questionnaire_4 FROM user";
-    if(name) {
-        sql += " WHERE name = '" +name+ "'";
-        //sql = "SELECT id FROM user WHERE name = '" +name+ "'";
+    if(!req.param("novel_id") || !req.param("user_id") || !req.param("paragraph_id")) {
+        res.status(400).json({error : "you need more paramaters."});
     }
+    var sql = "SELECT * FROM relation_novel_music WHERE novel_id = " +req.param("novel_id")+ " AND user_id = " +req.param("user_id")+ " AND paragraph_id = " + req.param("paragraph_id");
     sqlite.select(sql).then(function(result) {
         if(result.status === true) {
             res.status(200).json(result);
-        } else {
+        }else {
+            //console.log(result);
             res.status(400).json(result);
         }
-    });*/
-    res.render('index', { title: 'Express' });
+    });
 });
 
 router.post('/', function(req, res, next) {
