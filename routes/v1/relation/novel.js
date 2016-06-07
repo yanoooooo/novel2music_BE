@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var Sqlite = require('../sqlite.js');
+var Sqlite = require('../../sqlite.js');
 var sqlite = new Sqlite();
 
 var router = express.Router();
@@ -9,7 +9,7 @@ router.use(bodyParser());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var name = req.param("name");
+    /*var name = req.param("name");
     var sql = "SELECT id, name, age, sex, questionnaire_1, questionnaire_2, questionnaire_3, questionnaire_4 FROM user";
     if(name) {
         sql += " WHERE name = '" +name+ "'";
@@ -21,16 +21,15 @@ router.get('/', function(req, res, next) {
         } else {
             res.status(400).json(result);
         }
-    });
-    //res.render('index', { title: 'Express' });
+    });*/
+    res.render('index', { title: 'Express' });
 });
 
 router.post('/', function(req, res, next) {
     //res.render('index', { title: 'Express' });
     //console.log(req.body);
-    var sql = "INSERT INTO user ";
-    sql += "VALUES(NULL, '" +req.body.name+ "', " +req.body.age+ ", '" +req.body.sex+ "', " +req.body.password+ ", ";
-    sql += req.body.questionnaire_1+ ", " +req.body.questionnaire_2+ ", " +req.body.questionnaire_3+ ", " +req.body.questionnaire_4+ ", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+    var sql = "INSERT INTO relation_novel_music ";
+    sql += "VALUES(NULL, " +req.body.paragraph_id+ ", " +req.body.user_id+ ", " +req.body.music_id+ ", " +req.body.novel_id+ ")";
     sqlite.insert(sql).then(function(result) {
         if(result === true) {
             res.status(200).json({ message: 'Success! insert into table.' });
