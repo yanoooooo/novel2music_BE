@@ -6,6 +6,30 @@
 
  /**
  * @swagger
+ * path: /v1/term
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: fetch all master_term data
+ *      notes: Returns a terms in novel and paragraph
+ *      responseClass: term
+ *      nickname: term
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: novel_id
+ *          description: novel's id
+ *          paramType: query
+ *          required: false
+ *          type: Int
+ *        - name: paragraph_id
+ *          description: paragraph's id
+ *          paramType: query
+ *          required: false
+ *          type: Int
+ */
+
+ /**
+ * @swagger
  * path: /v1/relation/novel
  * operations:
  *   -  httpMethod: POST

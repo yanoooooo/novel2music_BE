@@ -41,8 +41,8 @@ app.use('/v1/time', require('./routes/v1/time'));
 app.use('/v1/rhythm', require('./routes/v1/rhythm'));
 app.use('/v1/music', require('./routes/v1/music'));
 app.use('/v1/novel', require('./routes/v1/novel'));
+app.use('/v1/term', require('./routes/v1/term'));
 app.use('/v1/relation/novel', require('./routes/v1/relation/novel'));
-
 
 //swagger
 app.use(swagger.init(app, {
