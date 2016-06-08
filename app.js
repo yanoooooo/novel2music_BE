@@ -43,6 +43,7 @@ app.use('/v1/music', require('./routes/v1/music'));
 app.use('/v1/novel', require('./routes/v1/novel'));
 app.use('/v1/term', require('./routes/v1/term'));
 app.use('/v1/relation/novel', require('./routes/v1/relation/novel'));
+app.use('/v1/relation/term', require('./routes/v1/relation/term'));
 
 //swagger
 app.use(swagger.init(app, {

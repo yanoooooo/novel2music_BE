@@ -30,6 +30,37 @@
 
  /**
  * @swagger
+ * path: /v1/relation/term
+ * operations:
+ *   -  httpMethod: POST
+ *      summary: save relation term and music
+ *      notes: save relation term and music
+ *      responseClass: relation_term_music
+ *      nickname: relation_term_music
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: body
+ *          description: post request body
+ *          paramType: body
+ *          required: true
+ *          type: relation_term_music
+ *          dataType: object
+ *      responses:
+ *          200:
+ *              description: Success
+ *              schema:
+ *                  type: object
+ *                  items:
+ *                      $ref: "#/definitions/Path" 
+ *          400:
+ *              description: Error
+ *              schema: 
+ *                  type: object
+ */
+
+ /**
+ * @swagger
  * path: /v1/relation/novel
  * operations:
  *   -  httpMethod: GET
@@ -297,5 +328,14 @@
  *       music_id:
  *         type: Int
  *       novel_id:
+ *         type: Int
+ *   relation_term_music:
+ *     id: relation_term_music
+ *     properties:
+ *       term_id:
+ *         type: Int
+ *       user_id:
+ *         type: Int
+ *       music_id:
  *         type: Int
  */
