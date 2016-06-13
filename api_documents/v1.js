@@ -74,17 +74,17 @@
  *        - name: novel_id
  *          description: novel's id
  *          paramType: query
- *          required: true
+ *          required: false
  *          type: Int
  *        - name: paragraph_id
  *          description: paragraph's id
  *          paramType: query
- *          required: true
+ *          required: false
  *          type: Int
  *        - name: user_id
  *          description: user's id
  *          paramType: query
- *          required: true
+ *          required: false
  *          type: Int
  */
 
