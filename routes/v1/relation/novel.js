@@ -9,15 +9,19 @@ router.use(bodyParser());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(!req.param("novel_id") || !req.param("user_id") || !req.param("paragraph_id")) {
+    var sql = "";
+    if(req.param("novel_id") && req.param("user_id") && req.param("paragraph_id")) {
+        sql = "SELECT * FROM relation_novel_music WHERE novel_id = " +req.param("novel_id")+ " AND user_id = " +req.param("user_id")+ " AND paragraph_id = " + req.param("paragraph_id");
+    } else if(!req.param("novel_id") && req.param("user_id") && !req.param("paragraph_id")) {
+        sql = "SELECT DISTINCT novel_id FROM relation_novel_music WHERE user_id = " +req.param("user_id");
+    } else {
         res.status(400).json({error : "you need more paramaters."});
     }
-    var sql = "SELECT * FROM relation_novel_music WHERE novel_id = " +req.param("novel_id")+ " AND user_id = " +req.param("user_id")+ " AND paragraph_id = " + req.param("paragraph_id");
     sqlite.select(sql).then(function(result) {
         if(result.status === true) {
             res.status(200).json(result);
         }else {
-            //console.log(result);
+            console.log(result);
             res.status(400).json(result);
         }
     });
