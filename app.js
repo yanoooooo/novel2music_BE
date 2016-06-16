@@ -4,12 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Promise = require('es6-promise').Promise;
 
 var routes = require('./routes/index');
 
 var app = express();
 
 var swagger = require('swagger-express');
+
+var conf = require('config');
+var env = {};
+env.API_HOST = conf.API_HOST;
+env.PORT = conf.PORT;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://dev-sygy-tech01.ssk.ynwm.yahoo.co.jp:3000");
+  res.header("Access-Control-Allow-Origin", "http://"+env.API_HOST+":"+env.PORT);
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type");
@@ -52,7 +58,7 @@ app.use(swagger.init(app, {
     swaggerURL: '/swagger',           // swaggerページのパス
     swaggerJSON: '/api-docs',      // swagger表示用のデータアクセス先
     swaggerUI: './swagger',           // swagger-uiが置いてあるパス
-    basePath: 'http://dev-sygy-tech01.ssk.ynwm.yahoo.co.jp:2800',
+    basePath: 'http://localhost:2800',
     apis: ['./api_documents/v1.js'],            // ドキュメントが記載されているファイル
     middleware: function(req, res){}
 }));
