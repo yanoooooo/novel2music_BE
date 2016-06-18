@@ -2,3 +2,4 @@
 node_modules
 swagger
 novel2music.sqlite
+novel2music_old.sqlite
