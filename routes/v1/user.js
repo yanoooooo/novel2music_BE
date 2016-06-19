@@ -10,10 +10,12 @@ router.use(bodyParser());
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var name = req.param("name");
-    var sql = "SELECT id, name, age, sex, questionnaire_1, questionnaire_2, questionnaire_3, questionnaire_4 FROM user";
+    var sql = "SELECT user.id, user.name, user.age, user.sex, user.questionnaire_1, user.questionnaire_2, user.questionnaire_3, user.questionnaire_4 FROM user";
     if(name) {
         sql += " WHERE name = '" +name+ "'";
         //sql = "SELECT id FROM user WHERE name = '" +name+ "'";
+    }else {
+        sql += " WHERE EXISTS(SELECT distinct user_id FROM relation_novel_music WHERE user.id = user_id)";
     }
     sqlite.select(sql).then(function(result) {
         if(result.status === true) {
