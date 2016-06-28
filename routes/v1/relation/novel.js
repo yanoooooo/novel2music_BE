@@ -14,6 +14,9 @@ router.get('/', function(req, res, next) {
         sql = "SELECT * FROM relation_novel_music WHERE novel_id = " +req.param("novel_id")+ " AND user_id = " +req.param("user_id")+ " AND paragraph_id = " + req.param("paragraph_id");
     } else if(!req.param("novel_id") && req.param("user_id") && !req.param("paragraph_id")) {
         sql = "SELECT DISTINCT novel_id FROM relation_novel_music WHERE user_id = " +req.param("user_id");
+    } else if(req.param("novel_id") && !req.param("user_id") && !req.param("paragraph_id")) {
+        //sql = "SELECT * FROM relation_novel_music WHERE novel_id = " +req.param("novel_id");
+        sql = "SELECT rnm.*, msc.title, msc.scale_id, msc.rhythm_id, msc.time_id FROM relation_novel_music rnm INNER JOIN master_music msc ON rnm.music_id = msc.id WHERE novel_id = " +req.param("novel_id");
     } else {
         res.status(400).json({error : "you need more paramaters."});
     }
