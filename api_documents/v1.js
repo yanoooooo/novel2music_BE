@@ -64,7 +64,7 @@
  * path: /v1/relation/novel
  * operations:
  *   -  httpMethod: GET
- *      summary: fetch all master_term data
+ *      summary: need novel_id, paragraph_id and user_id or just novel_id
  *      notes: Returns a terms in novel and paragraph
  *      responseClass: term
  *      nickname: term
