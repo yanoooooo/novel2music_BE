@@ -8,8 +8,20 @@ var router = express.Router();
 router.use(bodyParser());
 
 /* GET home page. */
-/*router.get('/', function(req, res, next) {
-    if(!req.param("novel_id") || !req.param("user_id") || !req.param("paragraph_id")) {
+router.get('/', function(req, res, next) {
+    var sql = "";
+    if(req.param("novel_id")) {
+        sql = "SELECT * FROM relation_term_music A INNER JOIN master_term B, master_music C ON A.term_id = B.id AND A.music_id = C.id WHERE B.novel_id=" + req.param("novel_id");
+    }
+    sqlite.select(sql).then(function(result) {
+        if(result.status === true) {
+            res.status(200).json(result);
+        }else {
+            //console.log(result);
+            res.status(400).json(result);
+        }
+    });
+    /*if(!req.param("novel_id") || !req.param("user_id") || !req.param("paragraph_id")) {
         res.status(400).json({error : "you need more paramaters."});
     }
     var sql = "SELECT * FROM relation_novel_music WHERE novel_id = " +req.param("novel_id")+ " AND user_id = " +req.param("user_id")+ " AND paragraph_id = " + req.param("paragraph_id");
@@ -20,8 +32,8 @@ router.use(bodyParser());
             //console.log(result);
             res.status(400).json(result);
         }
-    });
-});*/
+    });*/
+});
 
 router.post('/', function(req, res, next) {
     //res.render('index', { title: 'Express' });
