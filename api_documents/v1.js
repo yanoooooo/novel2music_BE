@@ -28,6 +28,25 @@
  *          type: Int
  */
 
+  /**
+ * @swagger
+ * path: /v1/relation/term
+ * operations:
+ *   -  httpMethod: GET
+ *      summary: get relation term and music
+ *      notes: get relation term and music
+ *      responseClass: relation_term_music
+ *      nickname: relation_term_music
+ *      consumes:
+ *        - application/json
+ *      parameters:
+ *        - name: novel_id
+ *          description: novel's id
+ *          paramType: query
+ *          required: false
+ *          type: Int
+ */
+
  /**
  * @swagger
  * path: /v1/relation/term
@@ -64,7 +83,7 @@
  * path: /v1/relation/novel
  * operations:
  *   -  httpMethod: GET
- *      summary: fetch all master_term data
+ *      summary: need novel_id, paragraph_id and user_id or just novel_id
  *      notes: Returns a terms in novel and paragraph
  *      responseClass: term
  *      nickname: term
