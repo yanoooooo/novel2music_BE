@@ -1,5 +1,6 @@
 var sqlite_util = function() {
     var sqlite3 = require("sqlite3").verbose();
+    //var db = new sqlite3.Database("./novel2music_backup.sqlite");
     var db = new sqlite3.Database("./novel2music.sqlite");
 
     this.select = function(sql) {
