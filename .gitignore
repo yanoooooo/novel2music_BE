@@ -2,3 +2,4 @@
 node_modules
 swagger
 *.sqlite
+config/development.yaml
