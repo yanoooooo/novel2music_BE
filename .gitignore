@@ -2,6 +2,3 @@
 node_modules
 swagger
 *.sqlite
-config/development.yaml
-config/production.yaml
-app.js
